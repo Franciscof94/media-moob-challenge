@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./views/Home";
+import Privacity from "./views/Privacity";
+import { useSelector } from "react-redux";
+import { GlobalStyles } from "./styles/GlobalStyles";
 
-function App() {
+const App = () => {
+  const { showModal } = useSelector((state) => state.showModal);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/privacity" element={<Privacity />}></Route>
+      </Routes>
+      <GlobalStyles showModal={showModal.payload} />
     </div>
   );
-}
+};
 
 export default App;

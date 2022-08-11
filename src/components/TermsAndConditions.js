@@ -162,7 +162,7 @@ const Wrapper = styled.div`
     padding: 25px;
     margin: 35px;
     overflow: auto;
-    max-height: 450px;
+    max-height: 215px;
     p {
       color: black;
       font-size: 1.5em;
